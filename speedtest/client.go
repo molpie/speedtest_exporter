@@ -17,7 +17,7 @@ package speedtest
 import (
 	"time"
 
-	"github.com/prometheus/common/log"
+	"github.com/sirupsen/logrus"
 	"github.com/zpeters/speedtest/print"
 	"github.com/zpeters/speedtest/sthttp"
 	"github.com/zpeters/speedtest/tests"

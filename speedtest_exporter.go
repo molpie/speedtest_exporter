@@ -24,11 +24,11 @@ import (
 
 	"github.com/dchest/uniuri"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/common/log"
+	"github.com/sirupsen/logrus"
 	prom_version "github.com/prometheus/common/version"
 
-	"github.com/nlamirault/speedtest_exporter/speedtest"
-	"github.com/nlamirault/speedtest_exporter/version"
+	"github.com/molpie/speedtest_exporter/speedtest"
+	"github.com/molpie/speedtest_exporter/version"
 )
 
 const (
