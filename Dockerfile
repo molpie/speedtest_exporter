@@ -37,7 +37,7 @@ FROM gcr.io/distroless/base
 LABEL summary="Speedtest Prometheus exporter" \
       description="A Prometheus exporter for speedtest" \
       name="nlamirault/speedtest_exporter" \
-      url="https://github.com/nlamirault/speedtest_exporter" \
+      url="https://github.com/molpie/speedtest_exporter" \
       maintainer="Nicolas Lamirault <nicolas.lamirault@gmail.com>"
 
 COPY --from=builder /go/bin/speedtest_exporter /usr/bin/speedtest_exporter

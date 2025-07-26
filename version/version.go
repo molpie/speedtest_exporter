@@ -14,5 +14,29 @@
 
 package version
 
+import (
+    "github.com/prometheus/client_golang/prometheus"
+    prom_version "github.com/prometheus/common/version"
+)
+
 // Version represents the application version using SemVer
 const Version string = "0.3.0"
+
+var buildInfo = prometheus.NewGaugeVec(
+    prometheus.GaugeOpts{
+        Name: "speedtest_exporter_build_info",
+        Help: "Speedtest exporter build information",
+    },
+    []string{"version", "revision", "branch", "buildUser", "buildDate"},
+)
+
+func VersionCollector() prometheus.Collector {
+    buildInfo.WithLabelValues(
+        Version,                        // tua costante personalizzata
+        prom_version.Revision,
+        prom_version.Branch,
+        prom_version.BuildUser,
+        prom_version.BuildDate,
+    ).Set(1)
+    return buildInfo
+}

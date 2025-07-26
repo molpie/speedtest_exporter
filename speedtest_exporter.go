@@ -24,7 +24,8 @@ import (
 
 	"github.com/dchest/uniuri"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/sirupsen/logrus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+	log "github.com/sirupsen/logrus"
 	prom_version "github.com/prometheus/common/version"
 
 	"github.com/molpie/speedtest_exporter/speedtest"
@@ -99,7 +100,7 @@ func (e *Exporter) Collect(ch chan<- prometheus.Metric) {
 }
 
 func init() {
-	prometheus.MustRegister(prom_version.NewCollector("speedtest_exporter"))
+	prometheus.MustRegister(version.VersionCollector())
 }
 
 func main() {
@@ -130,7 +131,8 @@ func main() {
 	log.Infoln("Register exporter")
 	prometheus.MustRegister(exporter)
 
-	http.Handle(*metricsPath, prometheus.Handler())
+	//http.Handle(*metricsPath, prometheus.Handler())
+	http.Handle(*metricsPath, promhttp.Handler())
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(`<html>
              <head><title>Speedtest Exporter</title></head>

@@ -46,7 +46,7 @@ WARN_COLOR=\033[33;01m
 
 MAKE_COLOR=\033[33;01m%-20s\033[0m
 
-MAIN = github.com/nlamirault/speedtest_exporter
+MAIN = github.com/molpie/speedtest_exporter
 SRCS = $(shell git ls-files '*.go' | grep -v '^vendor/')
 PKGS = $(shell glide novendor)
 EXE = $(shell ls speedtest_exporter-${VERSION}_*)
@@ -115,7 +115,7 @@ coverage: ## Launch code coverage
 
 gox: ## Make all binaries
 	@echo -e "$(OK_COLOR)[$(APP)] Create binaries $(NO_COLOR)"
-	@gox $(GOX_OS) $(GOX_ARGS) github.com/nlamirault/speedtest_exporter
+	@gox $(GOX_OS) $(GOX_ARGS) github.com/molpie/speedtest_exporter
 
 .PHONY: binaries
 binaries: ## Upload all binaries

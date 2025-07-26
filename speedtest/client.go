@@ -17,10 +17,10 @@ package speedtest
 import (
 	"time"
 
-	"github.com/sirupsen/logrus"
-	"github.com/zpeters/speedtest/print"
-	"github.com/zpeters/speedtest/sthttp"
-	"github.com/zpeters/speedtest/tests"
+	log "github.com/sirupsen/logrus"
+	"github.com/molpie/speedtest_exporter/internal/print"
+	"github.com/molpie/speedtest_exporter/internal/sthttp"
+	tests "github.com/molpie/speedtest_exporter/internal/speedtests"
 )
 
 const (
