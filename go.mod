@@ -1,4 +1,4 @@
-module github.com/nlamirault/speedtest_exporter
+module github.com/molpie/speedtest_exporter
 
 go 1.16
 
